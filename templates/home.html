@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+
+  <style>
+    .jumbotron{
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+  {% extends 'base.html' %}
+
+
+  
+  {% block content %}
+
+  <div class="jumbotron">
+    <h1 class="display-4">Hello, {{ user.username | title }}!</h1>
+    <p class="lead">This is my new project. This called 'Sunnotes'. In this website, I share new, helpful articles. You can see this articles and share with others</p>
+    <hr class="my-4">
+    <p>Enjoy with inspirational articles!</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}" role="button">See articles</a>
+    </p>
+  </div>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+
+    
+  {% endblock content %}
+    
+</body>
+</html>

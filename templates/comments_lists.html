@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Comments{% endblock title %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header">Comments</div>
+      {% for comment in article.comments.all %}
+          <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                  <p>{{ comment }}</p>
+                  <footer class="blockquote-footer">{{ comment.author }}</footer>
+              </blockquote>
+          </div>
+      {% endfor %}
+
+    </div>
+  </div>
+{% endblock content %}
